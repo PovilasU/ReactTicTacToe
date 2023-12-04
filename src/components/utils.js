@@ -20,3 +20,11 @@ export const calculateWinner = (board) => {
     return null;
   };
   
+  export const handleClick = (index, board, setBoard, currentPlayer, setCurrentPlayer) => {
+    if (board[index] === null && !calculateWinner(board)) {
+      const newBoard = [...board];
+      newBoard[index] = currentPlayer;
+      setBoard(newBoard);
+      setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
+    }
+};

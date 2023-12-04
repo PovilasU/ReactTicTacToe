@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import "./Board.css"; // Import the CSS file for styling
 import { calculateWinner } from "./utils";
+import { handleClick } from "./utils";
 
 const Board = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState("X");
 
-  const handleClick = (index) => {
-    if (board[index] === null && !calculateWinner(board)) {
-      const newBoard = [...board];
-      newBoard[index] = currentPlayer;
-      setBoard(newBoard);
-      setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
-    }
-  };
-
   const renderSquare = (index) => (
-    <button key={index} className="square" onClick={() => handleClick(index)}>
+    <button
+      key={index}
+      className="square"
+      onClick={() =>
+        handleClick(index, board, setBoard, currentPlayer, setCurrentPlayer)
+      }
+    >
       {board[index]}
     </button>
   );
