@@ -1,24 +1,11 @@
 import React, { useState } from "react";
 import "./Board.css"; // Import the CSS file for styling
 import { calculateWinner } from "./utils";
-import { handleClick } from "./utils";
+import { Square } from "./Square";
 
 const Board = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState("X");
-
-  const renderSquare = (index) => (
-    <button
-      key={index}
-      className="square"
-      onClick={() =>
-        handleClick(index, board, setBoard, currentPlayer, setCurrentPlayer)
-      }
-    >
-      {board[index]}
-    </button>
-  );
-
   const winner = calculateWinner(board);
 
   return (
@@ -26,7 +13,15 @@ const Board = () => {
       <h1>Tic Tac Toe</h1>
       {[0, 1, 2].map((row) => (
         <div className="row" key={row}>
-          {[0, 1, 2].map((col) => renderSquare(row * 3 + col))}
+          {[0, 1, 2].map((col) =>
+            Square(
+              row * 3 + col,
+              board,
+              setBoard,
+              currentPlayer,
+              setCurrentPlayer
+            )
+          )}
         </div>
       ))}
       {winner && <h2>Winner: {winner}</h2>}
