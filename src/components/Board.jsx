@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Board.css"; // Import the CSS file for styling
-import { calculateWinner } from "./utils";
+import { calculateWinner, resetBoard } from "./utils";
 import { Square } from "./Square";
 
 const Board = () => {
@@ -25,6 +25,7 @@ const Board = () => {
         </div>
       ))}
       {winner && <h2>Winner: {winner}</h2>}
+      <button onClick={resetBoard}>New Game</button>
     </div>
   );
 };

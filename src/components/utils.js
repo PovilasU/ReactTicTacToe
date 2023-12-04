@@ -28,3 +28,8 @@ export const calculateWinner = (board) => {
       setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
     }
 };
+
+export const resetBoard = () => {
+    setBoard(Array(9).fill(null));
+    setCurrentPlayer("X");
+  };

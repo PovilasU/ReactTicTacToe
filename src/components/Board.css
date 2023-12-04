@@ -4,6 +4,10 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .row {
@@ -23,8 +27,38 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .square:hover {
     background-color: #f2f2f2;
 }
+
+@media (max-width: 768px) {
+    .board {
+        margin-top: 20px;
+    }
+
+    .square {
+        width: 80px;
+        height: 80px;
+        font-size: 24px;
+        margin: 3px;
+    }
+}
+
+/* BEGIN: Add eye-friendly colors */
+.board {
+    background-color: #f0f0f0;
+}
+
+.square {
+    background-color: #4caf50;
+    color: #fff;
+    border-color: #4caf50;
+}
+
+.square:hover {
+    background-color: #45a049;
+}
+/* END: Add eye-friendly colors */
