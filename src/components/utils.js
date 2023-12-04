@@ -29,7 +29,7 @@ export const calculateWinner = (board) => {
     }
 };
 
-export const resetBoard = () => {
+export const resetBoard = (setBoard, setCurrentPlayer) => {
     setBoard(Array(9).fill(null));
     setCurrentPlayer("X");
-  };
+};
