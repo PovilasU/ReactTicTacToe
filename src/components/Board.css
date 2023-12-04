@@ -28,6 +28,8 @@
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 50%;
+    animation: bounce 0.5s;
 }
 
 .square:hover {
@@ -53,12 +55,64 @@
 }
 
 .square {
-    background-color: #4caf50;
+    background-image: radial-gradient(circle, #ffcc00 20%, #ff9900 80%);
     color: #fff;
-    border-color: #4caf50;
+    border-color: #ffcc00;
 }
 
 .square:hover {
-    background-color: #45a049;
+    background-image: radial-gradient(circle, #ffaa00 20%, #ff7700 80%);
 }
-/* END: Add eye-friendly colors */
+
+/* BEGIN: Change squares after win */
+.square.win {
+    background-color: #00ff00;
+    color: #000;
+    border-color: #00ff00;
+}
+
+.square.win:hover {
+    background-color: #00dd00;
+}
+/* END: Change squares after win */
+
+/* BEGIN: Change square if clicked */
+.square.clicked {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.square.clicked:hover {
+    background-color: #333;
+}
+/* END: Change square if clicked */
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+/* BEGIN: Add wind effect */
+.square {
+    animation: wind 2s infinite linear;
+}
+
+@keyframes wind {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+/* END: Add wind effect */

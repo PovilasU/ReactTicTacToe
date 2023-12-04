@@ -7,7 +7,10 @@ const Board = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState("X");
   const winner = calculateWinner(board);
-
+  const resetBoard = () => {
+    setBoard(Array(9).fill(null));
+    setCurrentPlayer("X");
+  };
   return (
     <div className="board">
       <h1>Tic Tac Toe</h1>
